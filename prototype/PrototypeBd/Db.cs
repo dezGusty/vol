@@ -12,7 +12,7 @@ namespace SiemensProject
     class Db
     {
 
-        public static void Showalljson()//Nu Functioneza nu stiu de ce dar oricum nu e nevoie de el daca merge show all volunteers
+        public static void Showalljson()/////Nu Functioneza nu stiu de ce dar oricum nu e nevoie de el daca merge show all volunteers
         {
             Volunteer ble = new Volunteer();
             string strResultJson = JsonConvert.SerializeObject(ble);
@@ -56,7 +56,7 @@ namespace SiemensProject
             new_event.TipeOfEvent = Console.ReadLine();
             Console.WriteLine("Place of Event:");
             new_event.PlaceOfEvent = Console.ReadLine();
-           
+
             do
             {
                 try
@@ -71,8 +71,8 @@ namespace SiemensProject
                     new_event.Lasting = 0;
                 }
 
-            } while (new_event.Lasting  < 1);
-         
+            } while (new_event.Lasting < 1);
+
             do
             {
                 try
@@ -84,7 +84,7 @@ namespace SiemensProject
                 catch (Exception)
                 {
                     Console.WriteLine("Please enter a Number");
-                    new_event.NumberOfVolunteersNeeded = 0; ;
+                    new_event.NumberOfVolunteersNeeded = 0;
                 }
 
             } while (new_event.NumberOfVolunteersNeeded < 1);
@@ -120,7 +120,7 @@ namespace SiemensProject
                     new_event.dateOfEvent.Month = 0;
                 }
 
-            } while (new_event.dateOfEvent.Month < 1);//int pentru brthmonth
+            } while (new_event.dateOfEvent.Month < 1);
             do
             {
                 try
@@ -242,11 +242,11 @@ namespace SiemensProject
                 catch (Exception)
                 {
                     Console.WriteLine("Please enter true/false;");
-                    
+
                 }
 
             } while (aux != true);
-           
+
 
             aux = false;
             do
@@ -263,7 +263,7 @@ namespace SiemensProject
                 catch (Exception)
                 {
                     Console.WriteLine("Please enter true/false;");
-                   
+
                 }
 
             } while (aux != true);
@@ -273,13 +273,13 @@ namespace SiemensProject
             vol.ContactInformations.MailAdress = Console.ReadLine();
             Console.WriteLine("PhoneNumber: : ");
             vol.ContactInformations.PhoneNumber = Console.ReadLine();
-           
+
             aux = false;
             do
             {
                 try
                 {
-                    vol.contract.HasContract= false;
+                    vol.contract.HasContract = false;
 
                     Console.WriteLine("Has contract?(true/false)");
 
@@ -292,7 +292,7 @@ namespace SiemensProject
 
                 }
 
-            }  while (aux != true) ;
+            } while (aux != true);
 
 
             Console.WriteLine("Contract Period in months");
@@ -311,13 +311,13 @@ namespace SiemensProject
             vol.Field_of_activity = Console.ReadLine();
             Console.WriteLine("Hour Count");
             vol.HourCount = Convert.ToInt16(Console.ReadLine());
-           
-             aux = false;
+
+            aux = false;
             do
             {
                 try
                 {
-                    vol.InActivity= false;
+                    vol.InActivity = false;
 
                     Console.WriteLine("Is active?(true/false)");
 
@@ -350,10 +350,12 @@ namespace SiemensProject
             return vol;
         }
 
-        internal static void Edit(List<Volunteer> allvolunteers2, int z)
+        /*internal static void Edit(List<Volunteer> allvolunteers2, int z)
         {
 
-        }//Aici Mai Trebuie de lucrat, dar fa tu sa nu zici ca fac eu tot si este si destul de greu
+
+
+        }//Aici Mai Trebuie de lucrat, dar fa tu sa nu zici ca fac eu tot si este si destul de greu*/
 
         internal static void ShowVolunteerbd(List<Volunteer> allvolunteers2)//Este Facut Blana pentru toate cazurile si din ianuarie si la sfarsitul lui decembrie
         {
@@ -460,7 +462,7 @@ namespace SiemensProject
                 Console.WriteLine("Id:" + new_event.Id_Event);
                 Console.WriteLine("Name Of Event: " + new_event.NameOfEvent);
                 Console.WriteLine("Place Of Event" + new_event.PlaceOfEvent);
-                Console.WriteLine("DateOfEvent:" + new_event.dateOfEvent.Year+"/"+new_event.dateOfEvent.Month+"/"+new_event.dateOfEvent.Day);
+                Console.WriteLine("DateOfEvent:" + new_event.dateOfEvent.Year + "/" + new_event.dateOfEvent.Month + "/" + new_event.dateOfEvent.Day);
                 Console.WriteLine(" Lasting:" + new_event.Lasting);
                 Console.WriteLine("Number Of Volunteers Needed:" + new_event.NumberOfVolunteersNeeded);
                 Console.WriteLine("Tipe Of Actyvities :" + new_event.TipeOfActyvities);
@@ -495,7 +497,7 @@ namespace SiemensProject
 
         internal static void SavetoJson_Event(List<Event> allevents)//aici trece toate datele din arrayul  allevents in fisierul Json
         {
-            
+
             int countid = 1;
             foreach (Event new_event in allevents)
             {
@@ -541,7 +543,7 @@ namespace SiemensProject
             }
             return idselected - 1;
         }
-        internal static int Selector_Event(List<Event> allevents)//aici selectezi care persoana vei modifica mai incolo
+        internal static int Selector_Event(List<Event> allevents)//aici selectezi care eveniment vei modifica mai incolo
         {
             int nr_e = 0;
             int idselected_e = 0;

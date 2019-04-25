@@ -88,10 +88,12 @@ namespace SiemensProject
                                 break;
 
                             case 3:
-                               /* int z = Db.Selector(allvolunteers2);
-                                Db.Edit(allvolunteers2, z);
+                                Volunteer vol1 = Db.AddVolunteerfromCmd();
+                                int z = Db.Selector(allvolunteers2);
+                                allvolunteers2.RemoveAt(z);
+                                allvolunteers2.Add(vol1);
                                 Db.SavetoJson(allvolunteers2);
-                                break;*/
+                                break;
 
                             case 4:
                                 Db.Showallvolunteers(allvolunteers2);
@@ -117,10 +119,12 @@ namespace SiemensProject
                                 Db.SavetoJson_Event(allevents);
                                 break;
                             case 9:
-                              /*  int w = Db.Selector_Event(allevents);
-                                Db.Edit_e(allevents, w);
+                                Event new_event1 = Db.AddEventFromKeyboard();
+                                int w = Db.Selector_Event(allevents);
+                                allevents.RemoveAt(w);
+                                allevents.Add(new_event1);
                                 Db.SavetoJson_Event(allevents);
-                                break;*/
+                                break;
                             case 10:
                                 Db.ShowallvolunteersEvent(allevents);
                                 break;
