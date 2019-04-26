@@ -23,11 +23,8 @@ namespace SiemensProject
             int choice;
             List<Volunteer> allvolunteers2 = new List<Volunteer>();
             List<Event> allevents = new List<Event>();
-            //DONE
-            //Intrebare daca Nar fi bine sa sterg characterul care cauzeaza problema
-            string jsontext= File.ReadAllText(@"volunteer.json");
-            string jsontext_event = File.ReadAllText(@"event.json");
-     
+            string jsontext = File.ReadAllText(@"..\..\..\data\volunteer.json");
+            string jsontext_event = File.ReadAllText(@"..\..\..\data\event.json");;
             //while (success = true)
             //{
             try
@@ -117,10 +114,11 @@ namespace SiemensProject
                                 Db.SavetoJson_Event(allevents);
                                 break;
                             case 9:
-                              /*  int w = Db.Selector_Event(allevents);
+                                /*  int w = Db.Selector_Event(allevents);
                                 Db.Edit_e(allevents, w);
                                 Db.SavetoJson_Event(allevents);
-                                break;*/
+                                */
+                                break;
                             case 10:
                                 Db.ShowallvolunteersEvent(allevents);
                                 break;

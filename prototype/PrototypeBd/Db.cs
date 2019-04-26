@@ -453,7 +453,7 @@ namespace SiemensProject
                 Console.WriteLine("Is InActivity: " + vol.InActivity);
                 Console.WriteLine("Occupation: " + vol.Occupation);
                 Console.WriteLine("Occupation_description : " + vol.Occupation_description);
-                Console.WriteLine("workSchedule: hours/day " + vol.workSchedule.HoursWeek + ",days/week " + vol.workSchedule.Comments.Days);
+                Console.WriteLine("workSchedule: hours/day " + vol.workSchedule.HoursWeek + ", days/week " + vol.workSchedule.Comments.Days);
                 Console.WriteLine("Contact Informations" + vol.ContactInformations.PhoneNumber + "," + vol.ContactInformations.MailAdress);
                 Console.WriteLine(" Comments:" + vol.comments.Days + "," + vol.comments.TimeAvailability);
                 Console.WriteLine("-----------------------------------------------------");
@@ -468,11 +468,11 @@ namespace SiemensProject
                 Console.WriteLine("Id:" + new_event.Id_Event);
                 Console.WriteLine("Name Of Event: " + new_event.NameOfEvent);
                 Console.WriteLine("Place Of Event" + new_event.PlaceOfEvent);
-                Console.WriteLine("DateOfEvent:" + new_event.dateOfEvent.Year+"/"+new_event.dateOfEvent.Month+"/"+new_event.dateOfEvent.Day);
-                Console.WriteLine(" Lasting:" + new_event.Lasting);
+                Console.WriteLine("Date Of Event:" + new_event.dateOfEvent.Year+"/"+new_event.dateOfEvent.Month+"/"+new_event.dateOfEvent.Day);
+                Console.WriteLine("Lasting (in days):" + new_event.Lasting);
                 Console.WriteLine("Number Of Volunteers Needed:" + new_event.NumberOfVolunteersNeeded);
-                Console.WriteLine("Tipe Of Actyvities :" + new_event.TipeOfActyvities);
-                Console.WriteLine("Tipe Of Event:" + new_event.TipeOfEvent);
+                Console.WriteLine("Type Of Activities :" + new_event.TipeOfActyvities);
+                Console.WriteLine("Type Of Event:" + new_event.TipeOfEvent);
                 Console.WriteLine("---------------------------------------------------------");
             }
         }
@@ -482,20 +482,27 @@ namespace SiemensProject
 
             int countid = 1;
             foreach (Volunteer vol in allvolunteers2)
-            {
-                vol.id = countid;
-                countid++;
+            {               
+                countid=vol.id;
             }
-            string tojson = JsonConvert.SerializeObject(allvolunteers2);
+            foreach (Volunteer vol in allvolunteers2)
+            {
+                string volstring = Convert.ToString(vol.id);
+                if(volstring == "")
+                {
+                    vol.id = countid++;
+                }
+            }
+                string tojson = JsonConvert.SerializeObject(allvolunteers2);
             if (tojson[0] == '[')
             {
-                File.WriteAllText("volunteer.json", tojson);
+                File.WriteAllText(@"..\..\..\data\event.json", tojson);
             }
             else
             {
-                File.WriteAllText("volunteer.json", "[");
-                File.AppendAllText("volunteer.json", tojson);
-                File.AppendAllText("volunteer.json", "]");
+                File.WriteAllText(@"..\..\..\data\event.json", "[");
+                File.AppendAllText(@"..\..\..\data\event.json", tojson);
+                File.AppendAllText(@"..\..\..\data\event.json", "]");
             }
 
 
@@ -505,21 +512,30 @@ namespace SiemensProject
         {
             
             int countid = 1;
+            string volstring;
             foreach (Event new_event in allevents)
             {
-                new_event.Id_Event = countid;
-                countid++;
+                countid = new_event.Id_Event;
             }
+            foreach (Event new_event in allevents)
+            {
+                volstring = Convert.ToString(new_event.Id_Event);
+                if (volstring == "")
+                {
+                    new_event.Id_Event = countid++;
+                }
+            }
+
             string tojson_e = JsonConvert.SerializeObject(allevents);
             if (tojson_e[0] == '[')
             {
-                File.WriteAllText("event.json", tojson_e);
+                File.WriteAllText(@"..\..\..\data\event.json", tojson_e);
             }
             else
             {
-                File.WriteAllText("event.json", "[");
-                File.AppendAllText("event.json", tojson_e);
-                File.AppendAllText("event.json", "]");
+                File.WriteAllText(@"..\..\..\data\event.json", "[");
+                File.AppendAllText(@"..\..\..\data\event.json", tojson_e);
+                File.AppendAllText(@"..\..\..\data\event.json", "]");
             }
 
         }
@@ -556,7 +572,7 @@ namespace SiemensProject
             foreach (Event new_event in allevents)
             {
                 nr_e++;
-                Console.WriteLine("ID_Event: " + nr_e + ", NameOfEvent:" + new_event.NameOfEvent);
+                Console.WriteLine("Number: " + nr_e + ", NameOfEvent:" + new_event.NameOfEvent);
             }
             Console.WriteLine("Please enter the number of the Event you want to edit/remove!");
             bool done_e = false;
