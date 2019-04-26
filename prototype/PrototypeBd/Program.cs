@@ -25,8 +25,6 @@ namespace SiemensProject
             List<Event> allevents = new List<Event>();
             string jsontext = File.ReadAllText(@"..\..\..\data\volunteer.json");
             string jsontext_event = File.ReadAllText(@"..\..\..\data\event.json");;
-            //while (success = true)
-            //{
             try
             {
                 var tmpObj = JsonValue.Parse(jsontext);
@@ -37,19 +35,15 @@ namespace SiemensProject
             }
             catch (FormatException fex)
             {
-                //Invalid json format
                 Console.WriteLine(fex);
                 finished = true;
             }
-            catch (Exception ex) //some other exception
+            catch (Exception ex) 
             {
                 Console.WriteLine(ex.ToString());
                 finished = true;
             }
-            //}
-          
-
-
+    
             while (finished != true)
             {
                 Console.WriteLine("Press 1 to add a person!");
@@ -85,10 +79,12 @@ namespace SiemensProject
                                 break;
 
                             case 3:
-                               /* int z = Db.Selector(allvolunteers2);
-                                Db.Edit(allvolunteers2, z);
+                                Volunteer vol1 = Db.AddVolunteerfromCmd();
+                                int z = Db.Selector(allvolunteers2);
+                                allvolunteers2.RemoveAt(z);
+                                allvolunteers2.Add(vol1);
                                 Db.SavetoJson(allvolunteers2);
-                                break;*/
+                                break;
 
                             case 4:
                                 Db.Showallvolunteers(allvolunteers2);
@@ -118,6 +114,12 @@ namespace SiemensProject
                                 Db.Edit_e(allevents, w);
                                 Db.SavetoJson_Event(allevents);
                                 */
+                                Event new_event1 = Db.AddEventFromKeyboard();
+                                int w = Db.Selector_Event(allevents);
+                                allevents.RemoveAt(w);
+                                allevents.Add(new_event1);
+                                Db.SavetoJson_Event(allevents);
+
                                 break;
                             case 10:
                                 Db.ShowallvolunteersEvent(allevents);
