@@ -10,6 +10,7 @@ namespace SiemensProject
         public int id { get; set; }
         public Address address = new Address();
         public Aditionalinfo aditionalInfo = new Aditionalinfo();
+        public Comments comments = new Comments();
         public int Age { get; set; }
         public BirthDate birthdate = new BirthDate();
         public Contactinformations contactInformations = new Contactinformations();
@@ -24,14 +25,12 @@ namespace SiemensProject
         public string Lastname { get; set; }
         public string Occupation { get; set; }
         public string Occupation_description { get; set; }
-        public Workschedule workSchedule = new Workschedule();
-        internal Workschedule WorkSchedule { get => workSchedule; set => workSchedule = value; }
         internal Contactinformations ContactInformations { get => ContactInformations1; set => ContactInformations1 = value; }
         internal Aditionalinfo AditionalInfo { get => aditionalInfo; set => aditionalInfo = value; }
         internal Address Address { get => address; set => address = value; }
         internal Contract Contract { get => contract; set => contract = value; }
         internal Contactinformations ContactInformations1 { get => contactInformations; set => contactInformations = value; }
-        internal Comments comments { get; set; }
+        internal Comments Comments { get => comments; set => comments = value; }
 
         public Volunteer() { }
     }
@@ -76,12 +75,6 @@ namespace SiemensProject
         public int Month { get; set; }
         public int Day { get; set; }
 
-    }
-
-    public class Workschedule
-    {
-        public string HoursWeek { get; set; }
-        public Comments Comments = new Comments();
     }
 
     public class Comments

@@ -178,7 +178,7 @@ namespace SiemensProject
                     vol.Age = 0;
                 }
 
-            } while (vol.Age < 1);// int  pentru age
+            } while (vol.Age < 1);
             Console.WriteLine("Country: ");
             vol.Address.Country = Console.ReadLine();
             Console.WriteLine("City: ");
@@ -203,7 +203,7 @@ namespace SiemensProject
                     vol.birthdate.Year = 0;
                 }
 
-            } while (vol.birthdate.Year < 1);//int pentru brthyear
+            } while (vol.birthdate.Year < 1);
             do
             {
                 try
@@ -218,7 +218,7 @@ namespace SiemensProject
                     vol.birthdate.Month = 0;
                 }
 
-            } while (vol.birthdate.Month < 1);//int pentru brthmonth
+            } while (vol.birthdate.Month < 1);
             do
             {
                 try
@@ -281,7 +281,6 @@ namespace SiemensProject
             vol.ContactInformations.MailAdress = Console.ReadLine();
             Console.WriteLine("PhoneNumber: : ");
             vol.ContactInformations.PhoneNumber = Console.ReadLine();
-
             aux = false;
             do
             {
@@ -301,25 +300,101 @@ namespace SiemensProject
                 }
 
             } while (aux != true);
+            do
+            {
+                try
+                {
+                    vol.Contract.ContractPeriod = 0;
+                    Console.WriteLine("Contract period in months: ");
+                    vol.Contract.ContractPeriod = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Please enter a Number");
+                    vol.Contract.ContractPeriod = 0;
+                }
 
+            } while (vol.Contract.ContractPeriod < 1);
 
-            Console.WriteLine("Contract Period in months");
-            vol.Contract.ContractPeriod = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine("Number of Registration: : ");
-            vol.Contract.NumberOfRegistration = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine("Registration Year");
-            vol.registrationday.Year = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine("Registration Month");
-            vol.registrationday.Month = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine("Registration Day");
-            vol.registrationday.Day = Convert.ToInt16(Console.ReadLine());
+            do
+            {
+                try
+                {
+                    vol.Contract.NumberOfRegistration = 0;
+                    Console.WriteLine("Number of Registration: ");
+                    vol.Contract.NumberOfRegistration = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Please enter a Number");
+                    vol.Contract.NumberOfRegistration = 0;
+                }
+
+            } while (vol.Contract.NumberOfRegistration < 1);
+            do
+            {
+                try
+                {
+                    vol.registrationday.Year = 0;
+                    Console.WriteLine("Registration Year: ");
+                    vol.registrationday.Year = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Please enter a Number");
+                    vol.registrationday.Year = 0;
+                }
+
+            } while (vol.registrationday.Year < 1);
+            do
+            {
+                try
+                {
+                    vol.registrationday.Month = 0;
+                    Console.WriteLine("Registration Month: ");
+                    vol.registrationday.Month = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Please enter a Number");
+                    vol.registrationday.Month = 0;
+                }
+
+            } while (vol.registrationday.Month < 1);
+            do
+            {
+                try
+                {
+                    vol.registrationday.Day = 0;
+                    Console.WriteLine("Registration Day: ");
+                    vol.registrationday.Day = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Please enter a Number");
+                    vol.registrationday.Day = 0;
+                }
+
+            } while (vol.registrationday.Day < 1);
             Console.WriteLine("Desired Workplace");
             vol.Desired_workplace = Console.ReadLine();
             Console.WriteLine("Field of activity");
             vol.Field_of_activity = Console.ReadLine();
-            Console.WriteLine("Hour Count");
-            vol.HourCount = Convert.ToInt16(Console.ReadLine());
+            do
+            {
+                try
+                {
+                    vol.HourCount = 0;
+                    Console.WriteLine("Hourcount: ");
+                    vol.HourCount = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Please enter a Number");
+                    vol.HourCount = 0;
+                }
 
+            } while (vol.HourCount < 1);
             aux = false;
             do
             {
@@ -346,12 +421,10 @@ namespace SiemensProject
             vol.Occupation = Console.ReadLine();
             Console.WriteLine("Occupation Description");
             vol.Occupation_description = Console.ReadLine();
-            Console.WriteLine("How many Hours a week");
-            vol.WorkSchedule.HoursWeek = Console.ReadLine();
             Console.WriteLine("Which days is he available");
-            vol.WorkSchedule.Comments.Days = Console.ReadLine();
+            vol.Comments.Days = Console.ReadLine();
             Console.WriteLine("What hours is he available");
-            vol.WorkSchedule.Comments.TimeAvailability = Console.ReadLine();
+            vol.Comments.TimeAvailability = Console.ReadLine();
 
             Console.WriteLine("Volunteer successfully added!");
 
@@ -451,13 +524,13 @@ namespace SiemensProject
                 Console.WriteLine("Contract information: " + vol.contract.HasContract + "," + vol.contract.ContractPeriod + "," + vol.contract.NumberOfRegistration);
                 Console.WriteLine("Desired workplace: " + vol.Desired_workplace);
                 Console.WriteLine("Field_of_activity: " + vol.Field_of_activity);
+                Console.WriteLine("Has Car: " + vol.AditionalInfo.HasCar);
                 Console.WriteLine("HourCount: " + vol.HourCount);
-                Console.WriteLine("Is InActivity: " + vol.InActivity);
-                Console.WriteLine("Occupation: " + vol.Occupation);
+                Console.WriteLine("Is Active : " + vol.InActivity);
+                Console.WriteLine("Occupation : " + vol.Occupation);
                 Console.WriteLine("Occupation_description : " + vol.Occupation_description);
-                Console.WriteLine("workSchedule: hours/day " + vol.workSchedule.HoursWeek + ", days/week " + vol.workSchedule.Comments.Days);
-                Console.WriteLine("Contact Informations" + vol.ContactInformations.PhoneNumber + "," + vol.ContactInformations.MailAdress);
-                Console.WriteLine(" Comments:" + vol.comments.Days + "," + vol.comments.TimeAvailability);
+                Console.WriteLine("Contact Informations: " + vol.ContactInformations.PhoneNumber + "," + vol.ContactInformations.MailAdress);
+                Console.WriteLine("Comments: " + vol.Comments.Days + "," + vol.Comments.TimeAvailability);
                 Console.WriteLine("-----------------------------------------------------");
 
             }
@@ -484,27 +557,32 @@ namespace SiemensProject
 
             int countid = 1;
             foreach (Volunteer vol in allvolunteers2)
-            {               
-                countid=vol.id;
+            {
+                if(vol.id>countid)
+                {
+                    countid = vol.id;
+                }
             }
             foreach (Volunteer vol in allvolunteers2)
             {
-                string volstring = Convert.ToString(vol.id);
-                if(volstring == "")
+                //string volstring = Convert.ToString(vol.id);
+                if(vol.id < 1)
                 {
-                    vol.id = countid++;
+                    countid++;
+                    vol.id = countid;
                 }
             }
-                string tojson = JsonConvert.SerializeObject(allvolunteers2);
+
+            string tojson = JsonConvert.SerializeObject(allvolunteers2);
             if (tojson[0] == '[')
             {
-                File.WriteAllText(@"..\..\..\data\event.json", tojson);
+                File.WriteAllText(@"..\..\..\data\volunteer.json", tojson);
             }
             else
             {
-                File.WriteAllText(@"..\..\..\data\event.json", "[");
-                File.AppendAllText(@"..\..\..\data\event.json", tojson);
-                File.AppendAllText(@"..\..\..\data\event.json", "]");
+                File.WriteAllText(@"..\..\..\data\volunteer.json", "[");
+                File.AppendAllText(@"..\..\..\data\volunteer.json", tojson);
+                File.AppendAllText(@"..\..\..\data\volunteer.json", "]");
             }
 
 
@@ -514,17 +592,20 @@ namespace SiemensProject
         {
 
             int countid = 1;
-            string volstring;
-            foreach (Event new_event in allevents)
+            foreach (Event eve in allevents)
             {
-                countid = new_event.Id_Event;
-            }
-            foreach (Event new_event in allevents)
-            {
-                volstring = Convert.ToString(new_event.Id_Event);
-                if (volstring == "")
+                if (eve.Id_Event > countid)
                 {
-                    new_event.Id_Event = countid++;
+                    countid = eve.Id_Event;
+                }
+            }
+            foreach (Event eve in allevents)
+            {
+                //string volstring = Convert.ToString(vol.id);
+                if (eve.Id_Event < 1)
+                {
+                    countid++;
+                    eve.Id_Event = countid;
                 }
             }
 

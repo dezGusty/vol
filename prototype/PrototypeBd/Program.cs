@@ -79,8 +79,8 @@ namespace SiemensProject
                                 break;
 
                             case 3:
-                                Volunteer vol1 = Db.AddVolunteerfromCmd();
                                 int z = Db.Selector(allvolunteers2);
+                                Volunteer vol1 = Db.AddVolunteerfromCmd();
                                 allvolunteers2.RemoveAt(z);
                                 allvolunteers2.Add(vol1);
                                 Db.SavetoJson(allvolunteers2);
@@ -88,7 +88,6 @@ namespace SiemensProject
 
                             case 4:
                                 Db.Showallvolunteers(allvolunteers2);
-
                                 break;
 
                             case 5:
