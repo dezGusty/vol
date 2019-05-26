@@ -1,0 +1,80 @@
+﻿@model Incercareax.Models.Event
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceOfEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceOfEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfVolunteersNeeded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfVolunteersNeeded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfActivities)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfActivities)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
