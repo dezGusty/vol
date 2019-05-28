@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Incercareax.Models.Volunteer>
+
+@{
+    ViewBag.Title = "ContractExp";
+}
+
+<h2>ContractExp</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contract.NumberOfRegistration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contract.RegistrationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contract.ExpirationDate)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    //Trebuie Facut IF ul pentru contract expiration
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contract.NumberOfRegistration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contract.RegistrationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contract.ExpirationDate)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.VolunteerID })
+        </td>
+    </tr>
+}
+
+</table>
