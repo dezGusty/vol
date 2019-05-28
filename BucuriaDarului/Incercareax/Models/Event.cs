@@ -14,9 +14,5 @@ namespace Incercareax.Models
     {
         [BsonId]
         public ObjectId EventID { get; set; }
-
-        [Required]
-        public string NameOfEvent { get; set; }
-
     }
 }

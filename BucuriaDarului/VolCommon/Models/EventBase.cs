@@ -6,6 +6,9 @@ namespace VolCommon
 {
     public class EventBase
     {
+
+        public string NameOfEvent { get; set; }
+
         public string PlaceOfEvent { get; set; }
 
         [DataType(DataType.Date)]
@@ -16,7 +19,7 @@ namespace VolCommon
         public string TypeOfActivities { get; set; }
 
         public string TypeOfEvent { get; set; }
-
+        
         public int Duration { get; set; }
     }
 }

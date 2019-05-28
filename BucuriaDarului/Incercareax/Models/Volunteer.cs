@@ -11,10 +11,6 @@ namespace Incercareax.Models
     {
         [BsonId]
         public ObjectId VolunteerID { get; set; }
-
-        [Required]
-        override public string Firstname { get; set; } 
-        
       
     }
 }
