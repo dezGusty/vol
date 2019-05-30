@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Incercareax.Models.Volunteer>
-
 @{
     ViewBag.Title = "Birthday";
 }
@@ -22,23 +21,26 @@
     </tr>
 
     @foreach (var item in Model)
-        //TREBUIE FACUT IF ul PEntru Birthday
-        //var month = DateTime.Today.Month;
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Firstname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lastname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Birthdate)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.VolunteerID })
-            </td>
-        </tr>
-    }
+        var Day = Incercareax.Models.Volunteer.Nowdate();
+        var voldays = Incercareax.Models.Volunteer.Volbd(item);
+        if ((Day <= voldays && Day + 10 > voldays) || (Day > 354 && 365 - (Day + 365 - Day - 2) >= voldays))
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birthdate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.VolunteerID })
+                    </td>
+                </tr>
+            }
+     }
 
 </table>
