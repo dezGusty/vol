@@ -42,7 +42,6 @@ namespace Incercareax.Models
             int volexp;
             {
                 volexp = (vol.Contract.ExpirationDate.Month - 1) * 30 + vol.Contract.ExpirationDate.Day;
-
             }
             return volexp;
         }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Core;
-using System.Configuration;
 using Incercareax.Models;
 using Incercareax.App_Start;
 
@@ -16,17 +12,41 @@ namespace Incercareax.Controllers
     {
         private MongoDBContext dbcontext;
         private IMongoCollection<Event> eventcollection;
+        private IMongoCollection<Volunteer> vollunteercollection;
 
         public EventController()
         {
             dbcontext = new MongoDBContext();
             eventcollection = dbcontext.database.GetCollection<Event>("events");
+            vollunteercollection = dbcontext.database.GetCollection<Volunteer>("volunteers");
         }
-        public ActionResult Index()
+
+        public ActionResult Index(string searching)
         {
             List<Event> events = eventcollection.AsQueryable<Event>().ToList();
-            return View(events);
+            if (searching != null)
+            {
+                return View(events.Where(x => x.NameOfEvent.Contains(searching)).ToList());
+            }
+            else
+            {
+                return View(events);
+            }
         }
+
+        public ActionResult VolunteerAllocation (string id, string searching)
+        {
+            List<Volunteer> volunteers = vollunteercollection.AsQueryable<Volunteer>().ToList();
+            if (searching != null)
+            {
+                return View(volunteers.Where(x => x.Firstname.Contains(searching)).ToList());
+            }
+            else
+            {
+                return View(volunteers);
+            }
+        }
+
 
         // GET: Volunteer/Details/5
         public ActionResult Details(string id)
@@ -49,6 +69,7 @@ namespace Incercareax.Controllers
         {
             try
             {
+                eventt.DateOfEvent = eventt.DateOfEvent.AddHours(5);
                 eventcollection.InsertOne(eventt);
                 return RedirectToAction("Index");
             }
@@ -57,6 +78,7 @@ namespace Incercareax.Controllers
                 return View();
             }
         }
+
 
         // GET: Volunteer/Edit/5
         public ActionResult Edit(string id)
@@ -74,7 +96,15 @@ namespace Incercareax.Controllers
             {
                 var filter = Builders<Event>.Filter.Eq("_id", ObjectId.Parse(id));
                 var update = Builders<Event>.Update
-                    .Set("Firstname", eventt.NameOfEvent);
+                    .Set("NameOfEvent", eventt.NameOfEvent)
+                    .Set("PlaceOfEvent", eventt.PlaceOfEvent)
+                    .Set("DateOfEvent", eventt.DateOfEvent.AddHours(5))
+                    .Set("NumberOfVolunteersNeeded", eventt.NumberOfVolunteersNeeded)
+                    .Set("TypeOfActivities", eventt.TypeOfActivities)
+                    .Set("TypeOfEvent", eventt.TypeOfEvent)
+                    .Set("Duration", eventt.Duration);
+
+
                 var result = eventcollection.UpdateOne(filter, update);
                 return RedirectToAction("Index");
             }
@@ -83,6 +113,7 @@ namespace Incercareax.Controllers
                 return View();
             }
         }
+       
 
         // GET: Volunteer/Delete/5
         public ActionResult Delete(string id)

@@ -44,7 +44,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Birthdate)
+            @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -94,15 +94,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Contract.NumberOfRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Contract.NumberOfRegistration, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Contract.NumberOfRegistration, new { htmlAttributes = new { @data_val = "false", @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Contract.NumberOfRegistration, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(model => model.Contract.RegistrationDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Contract.RegistrationDate)
+            @Html.EditorFor(model => model.Contract.RegistrationDate, new { htmlAttributes = new { @data_val = "false", @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Contract.RegistrationDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -110,7 +109,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Contract.ExpirationDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Contract.ExpirationDate)
+            @Html.EditorFor(model => model.Contract.ExpirationDate, new { htmlAttributes = new { @data_val = "false", @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Contract.ExpirationDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -161,18 +160,13 @@
         </div>
     }
 
-    @* Rezultatul este 0 Nu stiu din ce motiv trebuie facut *@
-    @using (Html.BeginForm("CheckRadio", "Home", FormMethod.Post))
-    {
-        <div class="form-group">
-
-            Select Desired_workplace:<br />
-            Canteen @Html.RadioButton("Desired_workplace", "Canteen")
-            Packages @Html.RadioButton("Desired_workplace", "Packages")
-            Events @Html.RadioButton("Desired_workplace", "Events")
-            Anywhere @Html.RadioButton("Desired_workplace", "Anywhere")
+    <div class="form-group">
+        @Html.LabelFor(model => model.Desired_workplace, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Desired_workplace, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Desired_workplace, "", new { @class = "text-danger" })
         </div>
-    }
+    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Field_of_activity, htmlAttributes: new { @class = "control-label col-md-2" })

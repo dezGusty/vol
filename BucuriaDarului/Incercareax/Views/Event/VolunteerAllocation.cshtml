@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Incercareax.Models.Volunteer>
+
+@{
+    ViewBag.Title = "VolunteerAllocation";
+}
+
+<h2>VolunteerAllocation</h2>
+
+@*Trebuie facut sa Ia idul Evenimentului care a fost selectat (Idul este hardcodat sa vad daca merge)*@
+@using (Html.BeginForm("/", "Event/VolunteerAllocation/5cfa267841f8c0345ca25f79", FormMethod.Get))
+{
+    @Html.TextBox("searching")<input type="submit" value="Search" />
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Desired_workplace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InActivity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourCount)
+        </th>
+        <th>
+            @Html.DisplayName("Allocation Status")
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3 " style="color:red">
+                There is no Volunteer to Allocate with such name!
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desired_workplace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InActivity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HourCount)
+                </td>
+                <td>
+
+                    <body>
+                        <label class="container">
+                            Allocate to this event
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                        </label>
+
+
+                    </body>
+                </td>
+
+
+            </tr>
+        }
+    }
+
+    </table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Allocate" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

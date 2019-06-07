@@ -7,10 +7,6 @@ namespace VolCommon
     {
         Male, Female
     }
-    public enum Desired_workplace
-    {
-        Canteen, Packages, Events, Anywhere
-    }
     public class VolunteerBase
     {
         public string Firstname { get; set; }
@@ -18,13 +14,14 @@ namespace VolCommon
         public string Lastname { get; set; }
 
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Birthdate { get; set; }
 
         public Address Address { get; set; }
 
         public Gender Gender { get; set; }
 
-        public Desired_workplace Desired_workplace { get; set; }
+        public string Desired_workplace { get; set; }
 
         public string Field_of_activity { get; set; }
 
