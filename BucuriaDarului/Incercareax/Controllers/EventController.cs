@@ -39,13 +39,44 @@ namespace Incercareax.Controllers
             List<Volunteer> volunteers = vollunteercollection.AsQueryable<Volunteer>().ToList();
             if (searching != null)
             {
+                ViewBag.Evid = id;
                 return View(volunteers.Where(x => x.Firstname.Contains(searching)).ToList());
             }
             else
             {
+                ViewBag.Evid = id;
                 return View(volunteers);
             }
         }
+
+        [HttpPost]
+        public ActionResult VolunteerAllocation(string[] vols, string Evid)
+        {
+            try
+            {
+                var filter = Builders<Event>.Filter.Eq("_id", ObjectId.Parse(Evid));
+                var update = Builders<Event>.Update
+                    .Set("AllocatedVolunteers", "Blabla");
+
+                var result = eventcollection.UpdateOne(filter, update);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        /*for (int i = 0; i < vols.Length; i++)
+        {
+            string nameofvols = "x";
+            var results = vollunteercollection.Find(x => x.VolunteerID.ToString() == vols[i]).ToList();
+            nameofvols = "asdas";
+            var filter = Builders<Event>.Filter.Eq("_id", ObjectId.Parse(Evid));
+            var update = Builders<Event>.Update
+                .Set("AllocatedVolunteers", "Blablabla");
+
+            var result = eventcollection.UpdateOne(filter, update);
+        }*/
 
 
         // GET: Volunteer/Details/5
