@@ -79,7 +79,7 @@
                     @Html.ActionLink("Edit", "Edit", new { id = item.EventID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.EventID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.EventID }) |
-                    @Html.ActionLink("Allocate Volunteers", "VolunteerAllocation", new { id = item.EventID })
+                    @Html.ActionLink("Allocate Volunteers", "VolunteerAllocation", new { id = item.EventID }, item.EventID)
                 </td>
             </tr>
         }
