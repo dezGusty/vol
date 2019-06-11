@@ -1,7 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
-using System.ComponentModel.DataAnnotations;
 using VolCommon;
 
 
@@ -18,7 +17,6 @@ namespace Incercareax.Models
             int voldays;
             {
                 voldays = (vol.Birthdate.Month - 1) * 30 + vol.Birthdate.Day;
-
             }
             return voldays;
         }
@@ -36,6 +34,7 @@ namespace Incercareax.Models
             Day = (Month - 1) * 30 + Day;
             return Day;
         }
+
         public static int Volexp(Volunteer vol)
         {
             int volexp;
@@ -44,7 +43,6 @@ namespace Incercareax.Models
             }
             return volexp;
         }
-
     }
 }
 

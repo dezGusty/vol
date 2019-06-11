@@ -52,13 +52,23 @@ namespace Incercareax.Controllers
         [HttpPost]
         public ActionResult VolunteerAllocation(string[] vols, string Evid)
         {
+
             try
             {
-                var filter = Builders<Event>.Filter.Eq("_id", ObjectId.Parse(Evid));
-                var update = Builders<Event>.Update
-                    .Set("AllocatedVolunteers", "Blabla");
+                string volname = "";
+                for (int i = 0; i < vols.Length; i++)
+                {
+                    var volunteerId = new ObjectId(vols[i]);
+                    var volunteer = vollunteercollection.AsQueryable<Volunteer>().SingleOrDefault(x => x.VolunteerID == volunteerId);
+                    
+                    volname = volname + volunteer.Firstname + " " + volunteer.Lastname + "; ";
+                    var filter = Builders<Event>.Filter.Eq("_id", ObjectId.Parse(Evid));
+                    var update = Builders<Event>.Update
+                        .Set("AllocatedVolunteers",volname);
 
-                var result = eventcollection.UpdateOne(filter, update);
+                    var result = eventcollection.UpdateOne(filter, update);
+                }
+         
                 return RedirectToAction("Index");
             }
             catch
@@ -66,17 +76,11 @@ namespace Incercareax.Controllers
                 return View();
             }
         }
-        /*for (int i = 0; i < vols.Length; i++)
-        {
-            string nameofvols = "x";
-            var results = vollunteercollection.Find(x => x.VolunteerID.ToString() == vols[i]).ToList();
-            nameofvols = "asdas";
-            var filter = Builders<Event>.Filter.Eq("_id", ObjectId.Parse(Evid));
-            var update = Builders<Event>.Update
-                .Set("AllocatedVolunteers", "Blablabla");
 
-            var result = eventcollection.UpdateOne(filter, update);
-        }*/
+        //public ActionResult returner(string evid, Volunteer vol)
+        //{
+
+        //}
 
 
         // GET: Volunteer/Details/5

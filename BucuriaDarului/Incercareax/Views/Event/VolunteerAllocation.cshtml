@@ -51,29 +51,30 @@
             foreach (var item in Model)
             {
 
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Firstname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Lastname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Desired_workplace)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.InActivity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HourCount)
-                    </td>
-                    <td>
-                        <input type="checkbox" name="vols" value="@item.VolunteerID" />
-                    </td>
-                    <td>
-                        <input type="hidden" name="Evid" value="@ViewBag.Evid"/>
-                    </td>
-                </tr>  
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desired_workplace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InActivity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HourCount)
+                </td>
+                @*TREBUIE FACUT SA CU IF SA DEA CHECKED DACA EVENT Contains Item.Firstname Si Fara Checked daca Nu contains*@       
+                <td>
+                    <input type="checkbox" name="vols" value="@item.VolunteerID" />
+                </td>
+                <td>
+                    <input type="hidden" name="Evid" value="@ViewBag.Evid" />
+                </td>
+            </tr>  
             }
         }
     </table>
