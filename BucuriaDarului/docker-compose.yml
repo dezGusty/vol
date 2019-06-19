@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  volmongo:
+    image: ${DOCKER_REGISTRY-}volmongo
+    build:
+      context: .\Incercareax
+      dockerfile: Dockerfile

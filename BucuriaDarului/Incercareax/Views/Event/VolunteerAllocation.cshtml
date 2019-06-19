@@ -6,6 +6,7 @@
 
 @{
     string evid = ViewBag.Evid.ToString();
+    string strname = ViewBag.strname.ToString();
 }
 <h2>VolunteerAllocation</h2>
 
@@ -67,13 +68,24 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.HourCount)
                 </td>
-                @*TREBUIE FACUT SA CU IF SA DEA CHECKED DACA EVENT Contains Item.Firstname Si Fara Checked daca Nu contains*@       
-                <td>
-                    <input type="checkbox" name="vols" value="@item.VolunteerID" />
-                </td>
-                <td>
-                    <input type="hidden" name="Evid" value="@ViewBag.Evid" />
-                </td>
+                @if (strname.Contains(item.Firstname))
+                {
+                    <td>
+                        <input type="checkbox" checked="checked"  name="vols" value="@item.VolunteerID" />
+                    </td>
+                    <td>
+                        <input type="hidden" name="Evid" value="@ViewBag.Evid" />
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <input type="checkbox" name="vols" value="@item.VolunteerID" />
+                    </td>
+                    <td>
+                        <input type="hidden" name="Evid" value="@ViewBag.Evid" />
+                    </td>
+                }
             </tr>  
             }
         }

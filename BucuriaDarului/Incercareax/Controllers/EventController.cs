@@ -37,6 +37,9 @@ namespace Incercareax.Controllers
         public ActionResult VolunteerAllocation (string id, string searching)
         {
             List<Volunteer> volunteers = vollunteercollection.AsQueryable<Volunteer>().ToList();
+            List<Event> events = eventcollection.AsQueryable<Event>().ToList();
+            var names = events.Find(b => b.EventID.ToString() == id);
+            ViewBag.strname = names.AllocatedVolunteers.ToString();
             if (searching != null)
             {
                 ViewBag.Evid = id;
