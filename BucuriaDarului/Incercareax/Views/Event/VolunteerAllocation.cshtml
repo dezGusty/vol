@@ -7,8 +7,10 @@
 @{
     string evid = ViewBag.Evid.ToString();
     string strname = ViewBag.strname.ToString();
+    string eventname = ViewBag.Eventname.ToString();
+
 }
-<h2>VolunteerAllocation</h2>
+<h2>VolunteerAllocation to @eventname</h2>
 
 @using (Html.BeginForm("/", "Event/VolunteerAllocation/" + evid, FormMethod.Get))
 {

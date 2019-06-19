@@ -40,6 +40,7 @@ namespace Incercareax.Controllers
             List<Event> events = eventcollection.AsQueryable<Event>().ToList();
             var names = events.Find(b => b.EventID.ToString() == id);
             ViewBag.strname = names.AllocatedVolunteers.ToString();
+            ViewBag.Eventname = names.NameOfEvent.ToString();
             if (searching != null)
             {
                 ViewBag.Evid = id;

@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Windows</DockerTargetOS>
-    <ProjectGuid>19251c71-765a-4944-86b3-e3fac0776679</ProjectGuid>
+    <ProjectGuid>6bdb6c77-69bd-4045-a4b6-ed33397c98d4</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>http://{ServiceIPAddress}</DockerServiceUrl>
     <DockerServiceName>volmongo</DockerServiceName>
