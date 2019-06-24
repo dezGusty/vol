@@ -431,12 +431,7 @@ namespace SiemensProject
             return vol;
         }
 
-        /*internal static void Edit(List<Volunteer> allvolunteers2, int z)
-        {
-
-
-
-        }//Aici Mai Trebuie de lucrat, dar fa tu sa nu zici ca fac eu tot si este si destul de greu*/
+    
 
         internal static void ShowVolunteerbd(List<Volunteer> allvolunteers2)//Este Facut Blana pentru toate cazurile si din ianuarie si la sfarsitul lui decembrie
         {

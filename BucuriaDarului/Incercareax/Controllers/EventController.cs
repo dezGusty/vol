@@ -25,8 +25,68 @@ namespace Incercareax.Controllers
         public ActionResult Index()
         {
             List<Event> events = eventcollection.AsQueryable<Event>().ToList();
-            return View(events);
+            if (searching != null)
+            {
+                return View(events.Where(x => x.NameOfEvent.Contains(searching)).ToList());
+            }
+            else
+            {
+                return View(events);
+            }
         }
+
+        public ActionResult VolunteerAllocation (string id, string searching)
+        {
+            List<Volunteer> volunteers = vollunteercollection.AsQueryable<Volunteer>().ToList();
+            List<Event> events = eventcollection.AsQueryable<Event>().ToList();
+            var names = events.Find(b => b.EventID.ToString() == id);
+            ViewBag.strname = names.AllocatedVolunteers.ToString();
+            ViewBag.Eventname = names.NameOfEvent.ToString();
+            if (searching != null)
+            {
+                ViewBag.Evid = id;
+                return View(volunteers.Where(x => x.Firstname.Contains(searching)).ToList());
+            }
+            else
+            {
+                ViewBag.Evid = id;
+                return View(volunteers);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult VolunteerAllocation(string[] vols, string Evid)
+        {
+
+            try
+            {
+                string volname = "";
+                for (int i = 0; i < vols.Length; i++)
+                {
+                    var volunteerId = new ObjectId(vols[i]);
+                    var volunteer = vollunteercollection.AsQueryable<Volunteer>().SingleOrDefault(x => x.VolunteerID == volunteerId);
+                    
+                    volname = volname + volunteer.Firstname + " " + volunteer.Lastname + "; ";
+                    var filter = Builders<Event>.Filter.Eq("_id", ObjectId.Parse(Evid));
+                    var update = Builders<Event>.Update
+                        .Set("AllocatedVolunteers",volname);
+
+                    var result = eventcollection.UpdateOne(filter, update);
+                }
+         
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //public ActionResult returner(string evid, Volunteer vol)
+        //{
+
+        //}
+
 
         // GET: Volunteer/Details/5
         public ActionResult Details(string id)
