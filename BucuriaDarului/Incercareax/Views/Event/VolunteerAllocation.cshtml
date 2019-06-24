@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Incercareax.Models.Volunteer>
+
+@{
+    ViewBag.Title = "VolunteerAllocation";
+}
+
+@{
+    string evid = ViewBag.Evid.ToString();
+    string strname = ViewBag.strname.ToString();
+    string eventname = ViewBag.Eventname.ToString();
+
+}
+<h2>VolunteerAllocation to @eventname</h2>
+
+@using (Html.BeginForm("/", "Event/VolunteerAllocation/" + evid, FormMethod.Get))
+{
+    @Html.TextBox("searching")<input type="submit" value="Search" />
+}
+
+
+<form action="/Event/VolunteerAllocation" method="post">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desired_workplace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InActivity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HourCount)
+            </th>
+            <th>
+                @Html.DisplayName("Allocation Status")
+            </th>
+            <th></th>
+        </tr>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3 " style="color:red">
+                    There is no Volunteer to Allocate with such name!
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desired_workplace)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InActivity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HourCount)
+                    </td>
+                    @if (strname.Contains(item.Firstname))
+                    {
+                        <td>
+                            <input type="checkbox" checked="checked" name="vols" value="@item.VolunteerID" />
+                        </td>
+                        <td>
+                            <input type="hidden" name="Evid" value="@ViewBag.Evid" />
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <input type="checkbox" name="vols" value="@item.VolunteerID" />
+                        </td>
+                        <td>
+                            <input type="hidden" name="Evid" value="@ViewBag.Evid" />
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </table>
+    <input type="submit" name="submit" value="Allocate" /><br>
+</form>

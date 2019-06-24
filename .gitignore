@@ -328,5 +328,3 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-App/VolMongo/VolMongo/Web.config
-Web.config

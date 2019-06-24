@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Incercareax.Models.Volunteer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Volunteers";
 }
 
 <h2>Volunteers</h2>
@@ -9,6 +9,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "Volunteer/", FormMethod.Get))
+{
+    @Html.TextBox("searching")<input type="submit" value="Search" />
+}
+
 <table class="table">
     <tr>
         <th>
@@ -38,39 +44,50 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @if (Model.Count() == 0)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Firstname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lastname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Birthdate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InActivity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contract.NumberOfRegistration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactInformation.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HourCount)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.VolunteerID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.VolunteerID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.VolunteerID })
+            <td colspan="3 " style="color:red">
+                There is no Volunteer with such name!
             </td>
         </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InActivity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contract.NumberOfRegistration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactInformation.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HourCount)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.VolunteerID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.VolunteerID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.VolunteerID })
+                </td>
+            </tr>
+        }
     }
 
 </table>
