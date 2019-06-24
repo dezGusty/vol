@@ -12,8 +12,8 @@ namespace Incercareax.Controllers
     public class JsonController : Controller
     {
         private MongoDBContext dbcontext;
-        private IMongoCollection<Event> eventcollection;
-        private IMongoCollection<Volunteer> vollunteercollection;
+        private readonly IMongoCollection<Event> eventcollection;
+        private readonly IMongoCollection<Volunteer> vollunteercollection;
 
 
         public JsonController()
