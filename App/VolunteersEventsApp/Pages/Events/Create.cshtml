@@ -1,0 +1,69 @@
+﻿@page
+@model VolunteersEventsApp.Pages.Events.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Event.NameOfEvent" class="control-label"></label>
+                <input asp-for="Event.NameOfEvent" class="form-control" />
+                <span asp-validation-for="Event.NameOfEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.PlaceOfEvent" class="control-label"></label>
+                <input asp-for="Event.PlaceOfEvent" class="form-control" />
+                <span asp-validation-for="Event.PlaceOfEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.DateOfEvents" class="control-label"></label>
+                <input asp-for="Event.DateOfEvents" class="form-control" />
+                <span asp-validation-for="Event.DateOfEvents" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.Lasting" class="control-label"></label>
+                <input asp-for="Event.Lasting" class="form-control" />
+                <span asp-validation-for="Event.Lasting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.NumberOfVolunteersNeeded" class="control-label"></label>
+                <input asp-for="Event.NumberOfVolunteersNeeded" class="form-control" />
+                <span asp-validation-for="Event.NumberOfVolunteersNeeded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.TypeOfActivities" class="control-label"></label>
+                <input asp-for="Event.TypeOfActivities" class="form-control" />
+                <span asp-validation-for="Event.TypeOfActivities" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.TypeOfEvent" class="control-label"></label>
+                <input asp-for="Event.TypeOfEvent" class="form-control" />
+                <span asp-validation-for="Event.TypeOfEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.AllocatedVolunteer" class="control-label"></label>
+                <input asp-for="Event.AllocatedVolunteer" class="form-control" />
+                <span asp-validation-for="Event.AllocatedVolunteer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

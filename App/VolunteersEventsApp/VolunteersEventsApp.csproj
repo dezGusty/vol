@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-VolunteersEventsApp-5989647F-F640-404A-BF51-717B90FE70EF</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile></DocumentationFile>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\RegistrationDay.cs" />
+    <Compile Remove="Pages\Allocates\Create.cshtml.cs" />
+    <Compile Remove="Pages\Allocates\Delete.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Allocates\Create.cshtml" />
+    <Content Remove="Pages\Allocates\Delete.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20190609151234_Initial.cs" />
+    <Compile Include="Migrations\20190609151234_Initial.Designer.cs" />
+    <Compile Include="Migrations\20190609171206_First.cs" />
+    <Compile Include="Migrations\20190609171206_First.Designer.cs" />
+    <Compile Include="Migrations\20190619074706_Test1.cs" />
+    <Compile Include="Migrations\20190619074706_Test1.Designer.cs" />
+    <Compile Include="Migrations\20190619080922_second.cs" />
+    <Compile Include="Migrations\20190619080922_second.Designer.cs" />
+    <Compile Include="Migrations\20190619091903_Test2.cs" />
+    <Compile Include="Migrations\20190619091903_Test2.Designer.cs" />
+    <Compile Include="Migrations\VolunteersEventsAppContextModelSnapshot.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1000" />
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1003" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="MSOffice.Object.Library" Version="15.0.4420.1018" />
+  </ItemGroup>
+
+</Project>

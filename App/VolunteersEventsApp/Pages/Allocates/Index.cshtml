@@ -1,0 +1,71 @@
+﻿@page "{id:int?}"
+@model VolunteersEventsApp.Pages.Allocates.IndexModel
+
+@{
+    ViewData["Title"] = "Allocate volunteeers";
+}
+
+<h1>Allocate volunteers</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+
+                @Html.DisplayNameFor(model => model.AllocateVM[0].AllocateID)
+
+            </th>*@
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.AllocateVM[0].Firstname)
+
+            </th>
+            <th>
+
+                @Html.DisplayNameFor(model => model.AllocateVM[0].Lastname)
+
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Allocate[0].Volunteer.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocate[0].Volunteer.Lastname)
+            </th>*@
+            <th>
+                @Html.DisplayName("Is Allocated")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AllocateVM)
+        {
+        <tr>
+            @*<td>
+
+            @Html.DisplayFor(modelItem => item.AllocateID)
+
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.IsAllocate)*@
+                <input type="checkbox" name="Is Allocate" value="@item.AllocateID"/>
+
+            </td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AllocateID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AllocateID">Details</a> |
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

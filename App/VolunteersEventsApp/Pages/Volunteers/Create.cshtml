@@ -1,0 +1,170 @@
+﻿@page
+@model VolunteersEventsApp.Pages.Volunteers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Volunteer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Firstname" class="control-label"></label>
+                <input asp-for="Volunteer.Firstname" class="form-control" />
+                <span asp-validation-for="Volunteer.Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Lastname" class="control-label"></label>
+                <input asp-for="Volunteer.Lastname" class="form-control" />
+                <span asp-validation-for="Volunteer.Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Gender" class="control-label"></label>
+                <input asp-for="Volunteer.Gender" class="form-control" />
+                <span asp-validation-for="Volunteer.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Age" class="control-label"></label>
+                <input asp-for="Volunteer.Age" class="form-control" />
+                <span asp-validation-for="Volunteer.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Birthdate" class="control-label"></label>
+                <input asp-for="Volunteer.Birthdate" class="form-control" />
+                <span asp-validation-for="Volunteer.Birthdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Desired_workplace" class="control-label"></label>
+                <input asp-for="Volunteer.Desired_workplace" class="form-control" />
+                <span asp-validation-for="Volunteer.Desired_workplace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Field_of_activity" class="control-label"></label>
+                <input asp-for="Volunteer.Field_of_activity" class="form-control" />
+                <span asp-validation-for="Volunteer.Field_of_activity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Occupation" class="control-label"></label>
+                <input asp-for="Volunteer.Occupation" class="form-control" />
+                <span asp-validation-for="Volunteer.Occupation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Occupation_description" class="control-label"></label>
+                <input asp-for="Volunteer.Occupation_description" class="form-control" />
+                <span asp-validation-for="Volunteer.Occupation_description" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Volunteer.InActivity" /> @Html.DisplayNameFor(model => model.Volunteer.InActivity))
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.HourCount" class="control-label"></label>
+                <input asp-for="Volunteer.HourCount" class="form-control" />
+                <span asp-validation-for="Volunteer.HourCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Address.Country" class="control-label"></label>
+                <input asp-for="Volunteer.Address.Country" class="form-control" />
+                <span asp-validation-for="Volunteer.Address.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Address.City" class="control-label"></label>
+                <input asp-for="Volunteer.Address.City" class="form-control" />
+                <span asp-validation-for="Volunteer.Address.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Address.Number" class="control-label"></label>
+                <input asp-for="Volunteer.Address.Number" class="form-control" />
+                <span asp-validation-for="Volunteer.Address.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Address.Street" class="control-label"></label>
+                <input asp-for="Volunteer.Address.Street" class="form-control" />
+                <span asp-validation-for="Volunteer.Address.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Volunteer.AditionalInfo.HasDrivingLicence" /> @Html.DisplayNameFor(model => model.Volunteer.AditionalInfo.HasDrivingLicence)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Volunteer.AditionalInfo.HasCar" /> @Html.DisplayNameFor(model => model.Volunteer.AditionalInfo.HasCar)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Address.Street" class="control-label"></label>
+                <input asp-for="Volunteer.Address.Street" class="form-control" />
+                <span asp-validation-for="Volunteer.Address.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.ContactInformation.PhoneNumber" class="control-label"></label>
+                <input asp-for="Volunteer.ContactInformation.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Volunteer.ContactInformation.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.ContactInformation.MailAdress" class="control-label"></label>
+                <input asp-for="Volunteer.ContactInformation.MailAdress" class="form-control" />
+                <span asp-validation-for="Volunteer.ContactInformation.MailAdress" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Volunteer.Contract.HasContract" /> @Html.DisplayNameFor(model => model.Volunteer.Contract.HasContract)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Contract.NumberOfRegistration" class="control-label"></label>
+                <input asp-for="Volunteer.Contract.NumberOfRegistration" class="form-control" />
+                <span asp-validation-for="Volunteer.Contract.NumberOfRegistration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Contract.ContractPeriod" class="control-label"></label>
+                <input asp-for="Volunteer.Contract.ContractPeriod" class="form-control" />
+                <span asp-validation-for="Volunteer.Contract.ContractPeriod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Contract.RegistrationDate" class="control-label"></label>
+                <input asp-for="Volunteer.Contract.RegistrationDate" class="form-control" />
+                <span asp-validation-for="Volunteer.Contract.RegistrationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Contract.ExpirationDate" class="control-label"></label>
+                <input asp-for="Volunteer.Contract.ExpirationDate" class="form-control" />
+                <span asp-validation-for="Volunteer.Contract.ExpirationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Workschedule.HoursWeek" class="control-label"></label>
+                <input asp-for="Volunteer.Workschedule.HoursWeek" class="form-control" />
+                <span asp-validation-for="Volunteer.Workschedule.HoursWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Workschedule.Comments.Days" class="control-label"></label>
+                <input asp-for="Volunteer.Workschedule.Comments.Days" class="form-control" />
+                <span asp-validation-for="Volunteer.Workschedule.Comments.Days" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Volunteer.Workschedule.Comments.TimeAvailability" class="control-label"></label>
+                <input asp-for="Volunteer.Workschedule.Comments.TimeAvailability" class="form-control" />
+                <span asp-validation-for="Volunteer.Workschedule.Comments.TimeAvailability" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

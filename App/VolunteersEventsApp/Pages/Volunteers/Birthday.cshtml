@@ -1,0 +1,57 @@
+﻿@page
+@model VolunteersEventsApp.Pages.Volunteers.BirthdayModel
+
+@{
+    ViewData["Title"] = "Birthday Alarm";
+}
+
+<h1>Birthday Alarm</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Volunteerb[0].Firstname)
+            </th>
+            <th>
+                
+                @Html.DisplayNameFor(model => model.Volunteerb[0].Lastname)
+               
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Volunteerb[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Volunteerb[0].Birthdate)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Volunteerb) {
+         var Day = VolunteersEventsApp.Models.Volunteer.Nowdate();
+        var voldays = VolunteersEventsApp.Models.Volunteer.Volbd(item);
+        if ((Day <= voldays && Day + 10 > voldays) || (Day > 354 && 365 - (Day + 365 - Day - 2) >= voldays))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+
+        </tr>
+}}
+    </tbody>
+</table>

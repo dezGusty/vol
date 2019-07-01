@@ -1,0 +1,57 @@
+﻿@page
+@model VolunteersEventsApp.Pages.Volunteers.ContractExpModel
+
+@{
+    ViewData["Title"] = "ContractExp";
+}
+
+<h1>ContractExp</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Volunteer[0].Firstname)
+            </th>
+            <th>
+                
+                @Html.DisplayNameFor(model => model.Volunteer[0].Lastname)
+               
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Volunteer[0].Contract.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Volunteer[0].Contract.ExpirationDate)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Volunteer) {
+         var Day = VolunteersEventsApp.Models.Volunteer.Nowdate();
+        var volexp = VolunteersEventsApp.Models.Volunteer.Volexp(item);
+        if ((Day <= volexp && Day + 20 > volexp) || (Day > 345 && 365 - (Day + 365 - Day - 2) >= volexp))
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Contract.RegistrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contract.ExpirationDate)
+            </td>
+
+        </tr>
+}}
+    </tbody>
+</table>

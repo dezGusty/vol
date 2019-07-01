@@ -1,0 +1,75 @@
+﻿@page "{id:int?}"
+@model VolunteersEventsApp.Pages.Events.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].NameOfEvent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].PlaceOfEvent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].DateOfEvents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].Lasting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].NumberOfVolunteersNeeded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].TypeOfActivities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].TypeOfEvent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Event)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceOfEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfEvents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lasting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfVolunteersNeeded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfActivities)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.TypeOfEvent)
+        </td>
+            
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>|
+                <a asp-page="../Allocates/Index" asp-route-id="@item.ID">Allocated</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

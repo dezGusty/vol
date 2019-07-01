@@ -1,0 +1,25 @@
+﻿@page "{id:int?}"
+@model VolunteersEventsApp.Pages.Allocates.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Allocate</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Allocate.IsAllocate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Allocate.IsAllocate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Allocate.AllocateID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

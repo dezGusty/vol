@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolunteersEventsApp", "VolunteersEventsApp\VolunteersEventsApp.csproj", "{2E574482-727C-41AD-B0E0-D30B7AB7109E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{B0A4AFC9-DDA0-4B2C-80F7-EC722B3A7230}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E574482-727C-41AD-B0E0-D30B7AB7109E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E574482-727C-41AD-B0E0-D30B7AB7109E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E574482-727C-41AD-B0E0-D30B7AB7109E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E574482-727C-41AD-B0E0-D30B7AB7109E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04D3B85F-411E-4B7C-82E5-E87E31FA4FC2}
+	EndGlobalSection
+EndGlobal
