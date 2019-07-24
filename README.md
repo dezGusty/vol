@@ -34,47 +34,47 @@ Eveniment campuri:
 
 ### Aplicatie sponsori/beneficiar
 Sponsor campuri:
-  -  cand a avut loc sponsorizarea;
-  - in ce a constat(bani/bunuri/altele);
-  - informatii contracr(daca exista un contract?,pe ce perioada);
-  -   alerta expirare contract;
-  -   date de contact(mail/nr. tel);
-  -  raport pe 6 luni.
+  [x] cand a avut loc sponsorizarea;
+  [x] in ce a constat(bani/bunuri/altele);
+  [x] informatii contracr(daca exista un contract?,pe ce perioada);
+  [x] alerta expirare contract;
+  [x] date de contact(mail/nr. tel);
+  [x] raport pe 6 luni.
   
 Beneficiar campuri:
- -  nume,prenume,data nasterii,gen;
- -  numele capului de familie;
- -  status(activ/inactiv);
- -  locatie(a,b);
- -  pachet saptamanal;
- -  sofer pentru livrare la domiciliu;
- - acord GDPR;
- -  adresa;
- -  act identitate(data expirare,cnp);
- -  marca(cerere id,ancheta,contract,perioada contract);
- - nr portii;
- -  date iesire din evidenta+motiv(deces,angajare,directia asist. sociala);
- -  loc nastere,data nasterii,varsta;
- -  date de contact(telefon);
- -  studii;
- -  profesie;
- -  ocupatie;
- -  vechime;
- -  starea sanatatii;
- -  handicap(da/nu);
- -  afectiuni cronice(da/nu);
- -  dependente;
- -  asigurat(da/nu);
- - card sanatate(da/nu);
- - stare civila;
- - nume sotie/sot/concubim;
- -  tip locuinta(chirie,gazduit de cineva,mostenire,etc);
- - persoana fara adapost(da/nu);
- - raport pe 6 luni.
+  [x] nume,prenume,data nasterii,gen;
+  [x] numele capului de familie;
+  [x] status(activ/inactiv);
+  [x] locatie(a,b);
+  [x] pachet saptamanal;
+  [x] sofer pentru livrare la domiciliu;
+  [x] acord GDPR;
+  [x] adresa;
+  [x] act identitate(data expirare,cnp);
+  [x]  marca(cerere id,ancheta,contract,perioada contract);
+  [x] nr. portii;
+  [x] date iesire din evidenta+motiv(deces,angajare,directia asist. sociala);
+  [x] loc nastere,data nasterii,varsta;
+  [x] date de contact(telefon);
+  [x] studii;
+  [x] profesie;
+  [x] ocupatie;
+  [x] vechime;
+  [x] starea sanatatii;
+  [x] handicap(da/nu);
+  [x] afectiuni cronice(da/nu);
+  [x] dependente;
+  [x] asigurat(da/nu);
+  [x] card sanatate(da/nu);
+  [x] stare civila;
+  [x] nume sotie/sot/concubim;
+  [x] tip locuinta(chirie,gazduit de cineva,mostenire,etc);
+  [x] persoana fara adapost(da/nu);
+  [x] raport pe 6 luni.
 
 Registru:
--  marca(cerere id,ancheta,contract,perioada contract);
--  marca(cerere id,ancheta,contract,perioada contract);
+ [x]  marca(cerere id,ancheta,contract,perioada contract);
+ [x]  marca(cerere id,ancheta,contract,perioada contract);
  
 ### Forma curenta in care se pastreaza informatiile
 Baza de date(fisier ecel) curenta pentru voluntari contine:
@@ -104,12 +104,15 @@ Fisierul ecel pt sponsori:
 - Program(main);
 - volunteer;
 - event;
+- beneficiari;
+- sponsori
 - db;
  -date;
  ##### Metode:
- - [x] adauga voluntar/eveniment;
- - [x] sterge voluntar/eveniment;
- - [x] arata toti voluntarii/toate evenimentele;
+ - [x] adauga voluntar/eveniment/sponsori/beneficiari;
+ - [x] sterge voluntar/eveniment/sponsori/beneficiari;
+ - [x] arata toti voluntarii/toate evenimentele/toti sponsori/toti beneficiari;
  - [x] alerta zi de nastere voluntari;
- - [x] alerta expirare contract;
- - [] editeaza un voluntar/eveniment;
+ - [x] alerta expirare contract(voluntari,beneficiari,sponsori);
+ - [x] editeaza un voluntar/eveniment/sponsor/beneficiari;
+ - [x] export date in excel(voluntari,evenimente,sponsori,beneficiari).
