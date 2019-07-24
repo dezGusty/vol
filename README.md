@@ -2,8 +2,8 @@
 # Bucuria Darului
 Cerinte:
   - [x] o aplicatie care pentru voluntari ;
-  - [] o aplicatie pentru beneficiari ;
-  - [] o aplicatie pentru sponsori ;
+  - [x] o aplicatie pentru beneficiari ;
+  - [x] o aplicatie pentru sponsori ;
 
 ### Aplicatie voluntari/eveniment
  Voluntar-campuri:
@@ -15,14 +15,14 @@ Cerinte:
   - [x] date de contact(mail,nr. tel);
   - [x] informatii aditionale(detine masina,are permis);
   - [x] ocupatie;
-  -[x]  domeniul in care vrea sa ajute la cantina;
+  - [x]  domeniul in care vrea sa ajute la cantina;
   - [x] disponibilitate(zile si intervale de timp in care poate activa);
   - [x] daca e activ ;
   - [x] contract(daca are?,informatii-data inregistrarii,perioada);
-  -[x]  data nasterii;
+  - [x]  data nasterii;
   - [x] alerta zi de nastere;
-  -[x] alerta expirare contract;
-  -[x] pontaj;
+  - [x] alerta expirare contract;
+  - [x] pontaj;
   - [x] comentatiu;
  
 Eveniment campuri:
@@ -34,47 +34,47 @@ Eveniment campuri:
 
 ### Aplicatie sponsori/beneficiar
 Sponsor campuri:
-  [x] cand a avut loc sponsorizarea;
-  [x] in ce a constat(bani/bunuri/altele);
-  [x] informatii contracr(daca exista un contract?,pe ce perioada);
-  [x] alerta expirare contract;
-  [x] date de contact(mail/nr. tel);
-  [x] raport pe 6 luni.
+ - [x] cand a avut loc sponsorizarea;
+ - [x] in ce a constat(bani/bunuri/altele);
+ - [x] informatii contracr(daca exista un contract?,pe ce perioada);
+ - [x] alerta expirare contract;
+ - [x] date de contact(mail/nr. tel);
+ - [x] raport pe 6 luni.
   
 Beneficiar campuri:
-  [x] nume,prenume,data nasterii,gen;
-  [x] numele capului de familie;
-  [x] status(activ/inactiv);
-  [x] locatie(a,b);
-  [x] pachet saptamanal;
-  [x] sofer pentru livrare la domiciliu;
-  [x] acord GDPR;
-  [x] adresa;
-  [x] act identitate(data expirare,cnp);
-  [x]  marca(cerere id,ancheta,contract,perioada contract);
-  [x] nr. portii;
-  [x] date iesire din evidenta+motiv(deces,angajare,directia asist. sociala);
-  [x] loc nastere,data nasterii,varsta;
-  [x] date de contact(telefon);
-  [x] studii;
-  [x] profesie;
-  [x] ocupatie;
-  [x] vechime;
-  [x] starea sanatatii;
-  [x] handicap(da/nu);
-  [x] afectiuni cronice(da/nu);
-  [x] dependente;
-  [x] asigurat(da/nu);
-  [x] card sanatate(da/nu);
-  [x] stare civila;
-  [x] nume sotie/sot/concubim;
-  [x] tip locuinta(chirie,gazduit de cineva,mostenire,etc);
-  [x] persoana fara adapost(da/nu);
-  [x] raport pe 6 luni.
+ - [x] nume,prenume,data nasterii,gen;
+ - [x] numele capului de familie;
+ - [x] status(activ/inactiv);
+ - [x] locatie(a,b);
+ - [x] pachet saptamanal;
+ - [x] sofer pentru livrare la domiciliu;
+ - [x] acord GDPR;
+ - [x] adresa;
+ - [x] act identitate(data expirare,cnp);
+ - [x]  marca(cerere id,ancheta,contract,perioada contract);
+ - [x] nr. portii;
+ - [x] date iesire din evidenta+motiv(deces,angajare,directia asist. sociala);
+ - [x] loc nastere,data nasterii,varsta;
+ - [x] date de contact(telefon);
+ - [x] studii;
+ - [x] profesie;
+ - [x] ocupatie;
+ - [x] vechime;
+ - [x] starea sanatatii;
+ - [x] handicap(da/nu);
+ - [x] afectiuni cronice(da/nu);
+ - [x] dependente;
+ - [x] asigurat(da/nu);
+ - [x] card sanatate(da/nu);
+ - [x] stare civila;
+ - [x] nume sotie/sot/concubim;
+ - [x] tip locuinta(chirie,gazduit de cineva,mostenire,etc);
+ - [x] persoana fara adapost(da/nu);
+ - [x] raport pe 6 luni.
 
 Registru:
- [x]  marca(cerere id,ancheta,contract,perioada contract);
- [x]  marca(cerere id,ancheta,contract,perioada contract);
+- [x]  marca(cerere id,ancheta,contract,perioada contract);
+- [x]  marca(cerere id,ancheta,contract,perioada contract);
  
 ### Forma curenta in care se pastreaza informatiile
 Baza de date(fisier ecel) curenta pentru voluntari contine:
